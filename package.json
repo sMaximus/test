@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/sMaximus/test/issues"
   },
-  "homepage": "https://github.com/sMaximus/test#readme"
+  "homepage": "https://github.com/sMaximus/test#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "module_name": "^1.0.0"
+  }
 }

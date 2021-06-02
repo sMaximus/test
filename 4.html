@@ -1,0 +1,43 @@
+<script>
+  class Promise {
+    constructor(fn) {
+      this.reasons = "";
+      this.val = "";
+      this.state = PENDING;
+      this.rejectList = [];
+      this.resolveList = [];
+
+      let reject = (reasons) => {
+        if ((this.state = PENDING)) {
+          this.state = REJECT;
+          this.reasons = reasons;
+          this.rejectList.forEach((fn) => fn(reasons));
+        }
+      };
+
+      let resolve = (val) => {
+        if ((this.state = PENDING)) {
+          this.state = FULFILLED;
+          this.val = val;
+          this.resolveList.forEach((fn) => fn(val));
+        }
+      };
+
+      try {
+        fn(resolve, reject);
+      } catch (err) {}
+    }
+
+    then(resolveFn, rejectFn) {
+      resolveFn = resolveFn instanceof Promise ? resolveFn : (v) => v;
+      rejectFn =
+        rejectFn instanceof Promise
+          ? rejectFn
+          : (err) => {
+              throw err;
+            };
+
+      return new Promise((resolve1, reject1) => {});
+    }
+  }
+</script>
