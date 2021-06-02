@@ -1,7 +1,6 @@
 const math = require("module_name");
 const { methodA } = require("module_name");
-console.log(methodA);
-console.log(methodA);
+
 var fib = function (n) {
   if (n < 2) {
     return n;
